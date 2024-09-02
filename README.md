@@ -50,7 +50,10 @@ moving the knob, listening to static, and then honing in on a station.  Stations
 and when outside those values, rather than having MPD play the radio stream, it would play static.  I originally planned on using FM static, but it wasn't as interesting
 as some of the other static samples I found.
 
-![df](./videos/tuner.mp4)
+<video width="640" controls>
+  <source src="./videos/tuner.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ### Volume Knob
 I expected this one to be simple:  When the value of the volume potentiometer changed, pass the new value along to the MPD instance,
