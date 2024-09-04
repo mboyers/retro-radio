@@ -65,9 +65,6 @@ and routing them elsewhere.  As I only wanted the application to have
 to deal with MPD for all audio, I decided to just deal with this in software.  This meant that I needed 
 to perform a calculation on the values coming from the volume pot to make read linearly, then pass that value to the MPD instance.
 
-
-
-
 ### Squelch
 Well, there is no squelch needed in this simulation. Squelch basically acted like a gate to keep noise down back in the day.  So, 
 I figured I'd repurpose it for something useful in this scenario.  After toying around with a few different ideas, I ended up deciding
@@ -77,7 +74,7 @@ convert a small blob of text to sound, and found [Voice RSS](http://www.voicerss
 pot is rotated, it just fires of an HTTP request to VoiceRSS with the text of the current artist, song, and station, and plays
 what is returned.
 
-[Video Demonstration of this]
+[![Retro Radio Tuner Demo](https://img.youtube.com/vi/xBr8wc5PbYg/0.jpg)](https://www.youtube.com/watch?v=xBr8wc5PbYg)
 
 
 For the web-app, I was initially planning on
