@@ -50,13 +50,7 @@ moving the knob, listening to static, and then honing in on a station.  Stations
 and when outside those values, rather than having MPD play the radio stream, it would play static.  I originally planned on using FM static, but it wasn't as interesting
 as some of the other static samples I found.
 
-{% raw %}
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-            src="https://youtube.com/shorts/5URUADNYmU8" 
-            frameborder="0" allowfullscreen></iframe>
-</div>
-{% endraw %}
+[![Retro Radio Tuner Demo](https://img.youtube.com/vi/5URUADNYmU8/0.jpg)](https://www.youtube.com/watch?v=5URUADNYmU8)
 
 ### Volume Knob
 I expected this one to be simple:  When the value of the volume potentiometer changed, pass the new value along to the MPD instance,
@@ -71,9 +65,6 @@ and routing them elsewhere.  As I only wanted the application to have
 to deal with MPD for all audio, I decided to just deal with this in software.  This meant that I needed 
 to perform a calculation on the values coming from the volume pot to make read linearly, then pass that value to the MPD instance.
 
-
-
-
 ### Squelch
 Well, there is no squelch needed in this simulation. Squelch basically acted like a gate to keep noise down back in the day.  So, 
 I figured I'd repurpose it for something useful in this scenario.  After toying around with a few different ideas, I ended up deciding
@@ -83,7 +74,7 @@ convert a small blob of text to sound, and found [Voice RSS](http://www.voicerss
 pot is rotated, it just fires of an HTTP request to VoiceRSS with the text of the current artist, song, and station, and plays
 what is returned.
 
-[Video Demonstration of this]
+[![Retro Radio Tuner Demo](https://img.youtube.com/vi/xBr8wc5PbYg/0.jpg)](https://www.youtube.com/watch?v=xBr8wc5PbYg)
 
 
 For the web-app, I was initially planning on
