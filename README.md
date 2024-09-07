@@ -29,10 +29,8 @@ The tuner was more interesting.  The first issue was that the tuning shaft was b
 
 ![Radio with broken shaft and disconnected string](./images/broken-shaft.jpg)
 
-Fixing the shaft was easy.  Figuring out how to wind the string around everything was a bit of a puzzle.  It ended up
-looking like this:
-
-![Diagram of Tuning String](./images/string.png)
+Fixing the shaft was easy.  Figuring out how to wind the string around everything was a bit of a puzzle.  After tracing a bunch
+of different paths, I wound up with [this](./images/string.png).
 
 With the string back on, I needed to figure out how to connect a new potentiometer to the original tuning shaft.
 I ended up buying a potentiometer that had its own shaft, then connecting it to the existing radio's shaft with a coupler, so that
@@ -52,8 +50,7 @@ audio functionality.  It also provides a RESTful API so that the webapp can conf
 ### Tuning Knob
 I wanted to make it so turning the tuner made it behave like tuning an actual radio, so I'd need to simlulate what it was like
 moving the knob, listening to static, and then honing in on a station.  Stations would be recognized at certain potentiometer values 
-and when outside those values, rather than having MPD play the radio stream, it would play static.  I originally planned on using FM static, but it wasn't as interesting
-as some of the other static samples I found.
+and when outside those values, rather than having MPD play the radio stream, it would play static.
 
 [![Retro Radio Tuner Demo](https://img.youtube.com/vi/5URUADNYmU8/0.jpg)](https://www.youtube.com/watch?v=5URUADNYmU8)
 
@@ -73,16 +70,16 @@ to perform a calculation on the values coming from the volume pot to make read l
 ### Squelch
 Well, there is no squelch needed in this simulation. Squelch basically acted like a gate to keep noise down back in the day.  So, 
 I figured I'd repurpose it for something useful in this scenario.  After toying around with a few different ideas, I ended up deciding
-it would be cool to use it to announce the currently playing artist, song, and station.  I looked around for voice synthesis
-libraries for the pi, but then changed direction and decided to see if there were any sites with any type of web API that would 
-convert a small blob of text to sound, and found [Voice RSS](http://www.voicerss.org/) which does exactly that.  When the squelch
-pot is rotated, it just fires of an HTTP request to VoiceRSS with the text of the current artist, song, and station, and plays
-what is returned.
+it would be cool to use it to announce the currently playing artist, song, and station.  Rather than use one of the "big boys" for
+doing text-to-speech synthesis, I went with [Voice RSS](http://www.voicerss.org/).  When the squelch pot is rotated, it fires off an HTTP request 
+to VoiceRSS with the text of the current artist, song, and station, and plays what is returned from their API.
 
 [![Retro Radio Tuner Demo](https://img.youtube.com/vi/xBr8wc5PbYg/0.jpg)](https://www.youtube.com/watch?v=xBr8wc5PbYg)
 
-
-In addition to the backend software for controlling the radio controls, there's a React/Material UI
+In addition to the backend software for handling the radio controls, I wanted to keep a web interface for configuring it.
+I found out that radio streams come and go.  Often, the station still exists but their streaming technology changes.  Some
+of the smaller stations just go away for good, but new ones still pop up all the time.  In some cases, I just want to change
+it up and use differentchanges their relationand need updated quitthere's a React/Material UI
 front end for configuring stations, calibrating the tuner knob, and a few other things.
 
 
