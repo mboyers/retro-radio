@@ -30,13 +30,14 @@ The tuner was more interesting.  The first issue was that the tuning shaft was b
 ![Radio with broken shaft and disconnected string](./images/broken-shaft.jpg)
 
 Fixing the shaft was easy.  Figuring out how to wind the string around everything was a bit of a puzzle.  After tracing a bunch
-of different paths, I wound up with [this](./images/string.png).
+of different paths, I "wound" up with [this](./images/string.png).
 
 With the string back on, I needed to figure out how to connect a new potentiometer to the original tuning shaft.
 I ended up buying a potentiometer that had its own shaft, then connecting it to the existing radio's shaft with a coupler, so that
 turning the radio shaft ends up turning the potentiometer.
 
-![Potentiometer fused with radio tuner shaft](./images/shaft-connected.jpg)
+[//]: # (![Potentiometer fused with radio tuner shaft]&#40;./images/shaft-connected.jpg&#41;)
+<img src="./images/shaft-connected.jpg" width=300>
 
 With all 3 potentiometers hooked up, I got two white led lights to illuminate the tuner area and connected them to the pi. 
 With that, everything was connected.
@@ -63,9 +64,9 @@ producing logarithmic values, as this seems more natural to the human ear as vol
 software like MPD already takes this into account.  If you pass it values that increase linearly,
 it's already internally adjusting it logarithmically.  So in this case, the logarithmic adjustment was happening twice.  
 I looked for ways to ask MPD to not do this, and apparently there are some ways that involve bypassing MPD's volume controls
-and routing them elsewhere.  As I only wanted the application to have
-to deal with MPD for all audio, I decided to just deal with this in software.  This meant that I needed 
-to perform a calculation on the values coming from the volume pot to make read linearly, then pass that value to the MPD instance.
+and routing them elsewhere.  As I only wanted the application to have to deal with MPD for all audio, I decided to just deal with this 
+in software.  This meant that I needed to perform a calculation on the values coming from the volume pot to make read linearly, 
+then pass that value to the MPD instance.
 
 ### Squelch
 Well, there is no squelch needed in this simulation. Squelch basically acted like a gate to keep noise down back in the day.  So, 
@@ -76,10 +77,22 @@ to VoiceRSS with the text of the current artist, song, and station, and plays wh
 
 [![Retro Radio Tuner Demo](https://img.youtube.com/vi/xBr8wc5PbYg/0.jpg)](https://www.youtube.com/watch?v=xBr8wc5PbYg)
 
+# Web Interface
+
 In addition to the backend software for handling the radio controls, I wanted to keep a web interface for configuring it.
-I found out that radio streams come and go.  Often, the station still exists but their streaming technology changes.  Some
-of the smaller stations just go away for good, but new ones still pop up all the time.  In some cases, I just want to change
-it up and use differentchanges their relationand need updated quitthere's a React/Material UI
-front end for configuring stations, calibrating the tuner knob, and a few other things.
+It's written in React/MUI and supports configuring stations, calibrating the tuner knob, and a few other things.
 
+Radio streams come and go - a lot.  Often, the station still exists but their streaming technology changes.  Some
+of the smaller stations just go away for good, but new ones still pop up all the time.  And, some streams work in the
+context of a web browser but not as a true audio stream that MPD can handle.  This is becoming more and more prevalent, 
+as radio stations are forcing video ads in their streams -- yes, a video ad in an audio stream.  I'd be surprised if anyone 
+streaming a radio station in their browser is actually paying attention to that tab/window other than listening to it, 
+but I've never been a marketing guy.  Anyway, I build an area where I can test new streams to see if they work (and if
+I like them), before adding them: 
 
+<img src="./images/ui-test.png">
+
+One of the other aspects I found was that 
+<img src="./images/ui-calibrate.png">
+<img src="./images/ui-configure.png">
+<img src="./images/ui-listen.png">
