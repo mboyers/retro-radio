@@ -12,28 +12,33 @@ plugged a powered speaker into it, and all was well.  Until I decided I wanted i
 
 I ended up finding a beat-up, non-functioning 
 [Regency Monitoradio (circa 1956)](https://commons.wikimedia.org/wiki/File:Vintage_Monitoradio_By_Regency,_Model_MR-10,_FM_Receiver,_8_Tubes,_Metal_Case,_Circa_1956_(15096254696).jpg) 
-at a flea market. I initially planned on just gutting it, cleaning it up, and sticking the pi and speaker in it.  
-Before I even got it home, scope-creep set in.  I thought it would be cool to control the power with the original 
+at a flea market. The plan was to gut it, clean it up, and stick the pi and speaker in it.  
+
+Before I even got it home, scope-creep set in.  I thought it would be cool to control the power to the pi with the original 
 radio controls.  Since I would already need to hook it up to the on/off/volume potentiometer for that, I might as well 
 see if I could get the volume knob to work.  And I might as well see if I could simulate using the tuner knob to choose 
 stations while I'm at it.
 
-At this point, I decided I wanted to try to keep as much of the feel of the existing controls as I could.  So I 
-decided to try to use the original 60+ year old potentiometers for the volume and squelch.  I cleaned them
-up as good as I could and connected them to the pi.  Suprisingly, they worked well enough.  Polling them would produce 
-pretty consistent results, but every so often, a reading would be far from the actual value.  I decided I'd try to mitigate 
+I eneded up deciding to try to keep as much of the feel of the existing controls as I could.  So I 
+figured I'd attempt use the original 60+ year old potentiometers for the volume and squelch.  I cleaned them
+up as good as I could and connected them to the pi.  Surprisingly, they worked well enough.  Polling them would produce 
+mostly consistent results, but every so often, a reading would be far from the actual value.  I decided I'd try to mitigate 
 this in the software, and stuck with the original pots, which are still in place today.
 
 The tuner was more interesting.  The first issue was that the tuning shaft was broken, and the string had fallen off.
 
-![image_info](./images/broken-shaft.jpg)
+![Radio with broken shaft and disconnected string](./images/broken-shaft.jpg)
 
-Fixing the shaft was easy.  Figuring out how to wind the string around everything was a complete puzzle.  Once I got
-the string back on, I needed to figure out how to connect a new potentiometer to the shaft that controlled the tuning.
-I ended up buying a potentiometer with a shaft, then connecting it to the existing radio's shaft with a coupler, so that
+Fixing the shaft was easy.  Figuring out how to wind the string around everything was a bit of a puzzle.  It ended up
+looking like this:
+
+![Diagram of Tuning String](./images/string.png)
+
+With the string back on, I needed to figure out how to connect a new potentiometer to the original tuning shaft.
+I ended up buying a potentiometer that had its own shaft, then connecting it to the existing radio's shaft with a coupler, so that
 turning the radio shaft ends up turning the potentiometer.
 
-![image_info](./images/shaft-connected.jpg)
+![Potentiometer fused with radio tuner shaft](./images/shaft-connected.jpg)
 
 With all 3 potentiometers hooked up, I got two white led lights to illuminate the tuner area and connected them to the pi. 
 With that, everything was connected.
@@ -77,7 +82,7 @@ what is returned.
 [![Retro Radio Tuner Demo](https://img.youtube.com/vi/xBr8wc5PbYg/0.jpg)](https://www.youtube.com/watch?v=xBr8wc5PbYg)
 
 
-For the web-app, I was initially planning on
-Change stations without having to reach over to the radio
-Test and configure new streams
-Calibrate 
+In addition to the backend software for controlling the radio controls, there's a React/Material UI
+front end for configuring stations, calibrating the tuner knob, and a few other things.
+
+
