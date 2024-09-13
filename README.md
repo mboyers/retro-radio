@@ -44,7 +44,7 @@ With that, everything was connected.
 
 ## Software
 
-The backend is a spring boot application, initially written in groovy, but then converted to kotlin at some point along the way. It
+The [backend is a spring boot application](https://github.com/mboyers/pi-radio), initially written in groovy, but then converted to kotlin at some point along the way. It
 scans the potentiometers for changes and acts on them and controls a [Music Player Daemon](https://www.musicpd.org/) instance for all 
 audio functionality.  It also provides a RESTful API so that the webapp can configure and control the radio as well.
 
@@ -58,11 +58,13 @@ and when outside those values, rather than having MPD play the radio stream, it 
 ### Volume Knob
 I expected this one to be simple:  When the value of the volume potentiometer changed, pass the new value along to the MPD instance,
 and that would be that.
+
 But what I found when playing with it was that the volume didn't seem to increase naturally when turning the knob.  After 
 logging the potentiometer values and watching them change as I turned the pot, I realized that the volume potentiometer was 
 producing logarithmic values, as this seems more natural to the human ear as volume increases.  The issue is that
 software like MPD already takes this into account.  If you pass it values that increase linearly,
 it's already internally adjusting it logarithmically.  So in this case, the logarithmic adjustment was happening twice.  
+
 I looked for ways to ask MPD to not do this, and apparently there are some ways that involve bypassing MPD's volume controls
 and routing them elsewhere.  As I only wanted the application to have to deal with MPD for all audio, I decided to just deal with this 
 in software.  This meant that I needed to perform a calculation on the values coming from the volume pot to make read linearly, 
@@ -79,7 +81,7 @@ to VoiceRSS with the text of the current artist, song, and station, and plays wh
 
 # Web Interface
 
-In addition to the backend software for handling the radio controls, I wanted to keep a web interface for configuring it.
+In addition to the backend software for handling the radio controls, I wanted to keep a [web interface](https://github.com/mboyers/pi-radio) for configuring it.
 It's written in React/MUI and supports configuring stations, calibrating the tuner knob, and a few other things.
 
 Radio streams come and go - a lot.  Often, the station still exists but their streaming technology changes.  Some
