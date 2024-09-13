@@ -37,7 +37,7 @@ I ended up buying a potentiometer that had its own shaft, then connecting it to 
 turning the radio shaft ends up turning the potentiometer.
 
 [//]: # (![Potentiometer fused with radio tuner shaft]&#40;./images/shaft-connected.jpg&#41;)
-<img src="./images/shaft-connected.jpg" width=300>
+<img src="./images/shaft-connected.jpg" width=300 alt="Radio Shaft fused with potentiometer shaft">
 
 With all 3 potentiometers hooked up, I got two white led lights to illuminate the tuner area and connected them to the pi. 
 With that, everything was connected.
@@ -81,7 +81,7 @@ to VoiceRSS with the text of the current artist, song, and station, and plays wh
 
 # Web Interface
 
-In addition to the backend software for handling the radio controls, I wanted to keep a [web interface](https://github.com/mboyers/pi-radio) for configuring it.
+In addition to the backend software for handling the radio controls, I wanted to keep a [web interface](https://github.com/mboyers/pi-radio-ui) for configuring it.
 It's written in React/MUI and supports configuring stations, calibrating the tuner knob, and a few other things.
 
 Radio streams come and go - a lot.  Often, the station still exists but their streaming technology changes.  Some
@@ -92,7 +92,7 @@ streaming a radio station in their browser is actually paying attention to that 
 but I've never been a marketing guy.  Anyway, I build an area where I can test new streams to see if they work (and if
 I like them), before adding them: 
 
-<img src="./images/ui-test.png">
+<img src="./images/ui-test.png" alt="User Interface Stream Tester">
 
 One of the other aspects I found was that 
 <img src="./images/ui-calibrate.png">
