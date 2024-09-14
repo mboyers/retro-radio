@@ -51,7 +51,8 @@ audio functionality.  It also provides a RESTful API so that the webapp can conf
 ### Tuning Knob
 I wanted to make it so turning the tuner made it behave like tuning an actual radio, so I'd need to simlulate what it was like
 moving the knob, listening to static, and then honing in on a station.  Stations would be recognized at certain potentiometer values 
-and when outside those values, rather than having MPD play the radio stream, it would play static.
+and when outside those values, rather than having MPD play the radio stream, it would play static.  Here's a video demo of the tuner and
+the volume knob.
 
 [![Retro Radio Tuner Demo](https://img.youtube.com/vi/5URUADNYmU8/0.jpg)](https://www.youtube.com/watch?v=5URUADNYmU8)
 
@@ -94,7 +95,10 @@ I like them), before adding them:
 
 <img src="./images/ui-test.png" alt="User Interface Stream Tester">
 
-One of the other aspects I found was that 
-<img src="./images/ui-calibrate.png">
-<img src="./images/ui-configure.png">
+In addition to a place for configuring stations, I also wanted a way to tune to a station without physically reaching
+the radio.  Yea, this goes against some of the principles I've outlined, but I tend to look at it as the best of both
+worlds:
+
 <img src="./images/ui-listen.png">
+
+I'm still making enhancements as I think of them.  If you have any thoughts or ideas, please feel free to let me know.
