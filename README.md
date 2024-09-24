@@ -52,7 +52,7 @@ audio functionality.  It also provides a RESTful API so that the webapp can conf
 I wanted to make it so turning the tuner made it behave like tuning an actual radio, so I'd need to simulate what it was like
 moving the knob, listening to static, and then honing in on a station.  Stations would be recognized at certain potentiometer values 
 and when outside those values, rather than having MPD play the radio stream, it would play static.  Here's a video demo of the tuner and
-the volume knob.
+the volume knob:
 
 [![Retro Radio Tuner Demo](https://img.youtube.com/vi/5URUADNYmU8/0.jpg)](https://www.youtube.com/watch?v=5URUADNYmU8)
 
@@ -68,7 +68,7 @@ it's already internally adjusting it logarithmically.  So in this case, the loga
 
 I looked for ways to ask MPD to not do this, and apparently there are some ways that involve bypassing MPD's volume controls
 and routing them elsewhere.  As I only wanted the application to have to deal with MPD for all audio, I decided to just deal with this 
-in software.  This meant that I needed to perform a calculation on the values coming from the volume pot to make read linearly, 
+in software, basically just performing a calculation on the values coming from the volume pot to make read linearly, 
 then pass that value to the MPD instance.
 
 ### Squelch
