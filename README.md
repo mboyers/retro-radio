@@ -19,13 +19,13 @@ radio controls.  Since I would already need to hook it up to the on/off/volume p
 see if I could get the volume knob to work.  And I might as well see if I could simulate using the tuner knob to choose 
 stations while I'm at it.
 
-I eneded up deciding to try to keep as much of the feel of the existing controls as I could.  So I 
+I ended up deciding to try to keep as much of the feel of the existing controls as I could.  So I 
 figured I'd attempt use the original 60+ year old potentiometers for the volume and squelch.  I cleaned them
 up as good as I could and connected them to the pi.  Surprisingly, they worked well enough.  Polling them would produce 
 mostly consistent results, but every so often, a reading would be far from the actual value.  I decided I'd try to mitigate 
 this in the software, and stuck with the original pots, which are still in place today.
 
-The tuner was more interesting.  The first issue was that the tuning shaft was broken, and the string had fallen off.
+The tuner was more interesting.  The tuning shaft was broken, and the string had fallen off.
 
 ![Radio with broken shaft and disconnected string](./images/broken-shaft.jpg)
 
@@ -39,17 +39,17 @@ turning the radio shaft ends up turning the potentiometer.
 [//]: # (![Potentiometer fused with radio tuner shaft]&#40;./images/shaft-connected.jpg&#41;)
 <img src="./images/shaft-connected.jpg" width=300 alt="Radio Shaft fused with potentiometer shaft">
 
-With all 3 potentiometers hooked up, I got two white led lights to illuminate the tuner area and connected them to the pi. 
+With all 3 potentiometers hooked up, I got two white LED lights to illuminate the tuner area and connected them to the pi. 
 With that, everything was connected.
 
 ## Software
 
-The [backend is a spring boot application](https://github.com/mboyers/pi-radio), initially written in groovy, but then converted to kotlin at some point along the way. It
+The [backend is a spring boot application](https://github.com/mboyers/pi-radio), initially written in groovy, but then converted to Kotlin at some point along the way. It
 scans the potentiometers for changes and acts on them and controls a [Music Player Daemon](https://www.musicpd.org/) instance for all 
 audio functionality.  It also provides a RESTful API so that the webapp can configure and control the radio as well.
 
 ### Tuning Knob
-I wanted to make it so turning the tuner made it behave like tuning an actual radio, so I'd need to simlulate what it was like
+I wanted to make it so turning the tuner made it behave like tuning an actual radio, so I'd need to simulate what it was like
 moving the knob, listening to static, and then honing in on a station.  Stations would be recognized at certain potentiometer values 
 and when outside those values, rather than having MPD play the radio stream, it would play static.  Here's a video demo of the tuner and
 the volume knob.
@@ -76,7 +76,7 @@ Well, there is no squelch needed in this simulation. Squelch basically acted lik
 I figured I'd repurpose it for something useful in this scenario.  After toying around with a few different ideas, I ended up deciding
 it would be cool to use it to announce the currently playing artist, song, and station.  Rather than use one of the "big boys" for
 doing text-to-speech synthesis, I went with [Voice RSS](http://www.voicerss.org/).  When the squelch pot is rotated, it fires off an HTTP request 
-to VoiceRSS with the text of the current artist, song, and station, and plays what is returned from their API.
+to VoiceRSS with the text of the current artist, song, and station, and plays what is returned from their API.  Here's a video demo:
 
 [![Retro Radio Tuner Demo](https://img.youtube.com/vi/xBr8wc5PbYg/0.jpg)](https://www.youtube.com/watch?v=xBr8wc5PbYg)
 
