@@ -90,7 +90,7 @@ of the smaller stations just go away for good, but new ones still pop up all the
 context of a web browser but not as a true audio stream that MPD can handle.  This is becoming more and more prevalent, 
 as radio stations are forcing video ads in their streams -- yes, a video ad in an audio stream.  I'd be surprised if anyone 
 streaming a radio station in their browser is actually paying attention to that tab/window other than listening to it, 
-but I've never been a marketing guy.  Anyway, I build an area where I can test new streams to see if they work (and if
+but I've never been a marketing guy.  Anyway, to keep on top of this, I built an area where I can test new streams to see if they work (and if
 I like them), before adding them: 
 
 <img src="./images/ui-test.png" alt="User Interface Stream Tester">
