@@ -99,6 +99,6 @@ In addition to a place for configuring stations, I also wanted a way to tune to 
 the radio.  Yea, this goes against some of the principles I've outlined, but I tend to look at it as the best of both
 worlds:
 
-<img src="./images/ui-listen.png">
+<img src="./images/ui-listen.png" alt="User Interface Choose Stations">
 
 
